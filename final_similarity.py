@@ -8,6 +8,7 @@ import math
 import string
 import sys
 import nltk
+import os
 
 stop_words = nltk.corpus.stopwords.words('english')
 
@@ -15,7 +16,9 @@ stop_words = nltk.corpus.stopwords.words('english')
 
 def read_file(filename):	
 	try:
-		with open(filename, 'r') as f:
+                fullpath = os.path.join(filename) 
+                with open(fullpath, 'r', errors='ignore') as f:
+		#with open(filename, 'r') as f:
 			data = f.read()
 		return data	
 	except IOError:
